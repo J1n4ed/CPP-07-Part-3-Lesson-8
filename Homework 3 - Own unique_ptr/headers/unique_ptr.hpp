@@ -50,8 +50,18 @@ namespace jinx
 
 		unique_ptr(T * obj)
 		{
+			// extra verbose for test
+			// verb
+			std::cout << '\n' << "> Constructor for unique ptr!\n";
+			std::cout << "> *obj = " << *obj << ", &obj = " << &obj << '\n';
+
 			_pointer = new T;
 			*_pointer = std::move(*obj);
+
+			// verb
+			std::cout << "> *_pointer = " << *_pointer << ", &_pointer = " << &_pointer << '\n';
+			std::cout << std::endl;
+
 			delete obj;			
 		}
 
@@ -60,7 +70,7 @@ namespace jinx
 		~unique_ptr()
 		{
 			delete _pointer;
-			std::cout << "\nDestructor for unique_ptr called!\n";
+			std::cout << "\n> Destructor for unique_ptr called!\n";
 		}
 
 
