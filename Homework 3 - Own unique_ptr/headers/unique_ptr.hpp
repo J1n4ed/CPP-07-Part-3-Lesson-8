@@ -28,10 +28,11 @@ namespace jinx
 
 		T & release()
 		{
-			T * ret = _pointer;
+			T * ret = new T;
+			*ret = std::move(*_pointer);
 			delete [] _pointer;
 			_pointer = nullptr;
-			return ret;
+			return *ret;
 		}
 
 		// overloads

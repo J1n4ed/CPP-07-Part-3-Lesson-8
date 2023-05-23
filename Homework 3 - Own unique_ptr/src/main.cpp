@@ -49,6 +49,23 @@ int main(int argc, char** argv)
 		std::cout << "\n*uptr_dbl = " << *uptr_dbl << '\n';
 	}
 
+	{
+		// relese()
+
+		std::cout << "\n--- Relese test ---\n";
+
+		jinx::unique_ptr<float> ptr_flt(new float(5.5));
+
+		// *ptr_flt = 5.5;
+
+		std::cout << "\n*ptr_flt = " << *ptr_flt << '\n';
+
+		jinx::unique_ptr<float> ptr_flt_2(&ptr_flt.release());
+
+		std::cout << "\n*ptr_flt_2 = " << *ptr_flt_2 << '\n';
+
+	}
+
 	// EXIT
 
 	std::cout << std::endl;
